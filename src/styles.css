@@ -1,8 +1,98 @@
-/* add css styles here (optional) */
-
-.test {
+.avatar {
   display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+  width:315px;
+  vertical-align: top;
+  height:305px;
+}
+
+.tabs {
+  display: inline-block;
+  width:100px;
+  vertical-align: top;
+  padding-top:50px;
+  padding-bottom: 20px;
+  padding-left:10px;
+  overflow: hidden;
+  position: relative;
+  left:1px;
+  height:305px;
+  box-sizing: border-box;
+}
+
+.tab {
+  font-size:13px;
+  border:1px solid transparent;
+  padding: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  cursor: pointer;
+  color:#007bff;
+}
+
+.selectedTab {
+  border-color:#dee2e6;
+  border-right-color: white;
+  color: #495057;
+  box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.2);
+}
+
+.tabpanes {
+  display: inline-block;
+  width: 400px;
+  padding-left:30px;
+  border-left:1px solid #dee2e6;
+  height:305px;
+}
+
+.tabpane {
+  display: none;
+  height:305px;
+  width:450px;
+}
+
+.visible {
+  display:flex;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.piece {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.piece:hover {
+  background-color: #cce5ff;
+  cursor: pointer;
+}
+
+.none {
+  opacity: .2;
+  font-size: 11px;
+  position: absolute;
+  top: 20px;
+  left: 9px;
+}
+
+.divider {
+  display: block;
+  width: 100%;
+  height:20px;
+  padding:10px 60px;
+}
+
+.divider > div {
+  height: 1px;
+  background-color: #dee2e6;
+}
+
+.color {
+  display: inline-block;
+  height: 30px;
+  width:30px;
+  cursor: pointer;
 }

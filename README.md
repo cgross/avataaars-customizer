@@ -1,8 +1,6 @@
 # avataaars-customizer
 
-> 
-
-[![NPM](https://img.shields.io/npm/v/avataaars-customizer.svg)](https://www.npmjs.com/package/avataaars-customizer) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+Custom avatar generator based on https://avataaars.com/ and https://getavataaars.com/.
 
 ## Install
 
@@ -10,19 +8,32 @@
 npm install --save avataaars-customizer
 ```
 
+React, react-dom, avataaars, and lodash are peer dependencies.
+
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React from 'react'
 
-import MyComponent from 'avataaars-customizer'
+import AvataaarsCustomerizer from 'avataaars-customizer'
 
-class Example extends Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
+function Example() {
+  const [customizedAttributes,setCustomizedAttributes] = React.useState({
+    topType:'LongHairMiaWallace',
+    accessoriesType:'Prescription02',
+    hairColor:'BrownDark',
+    facialHairType:'Blank',
+    clotheType:'Hoodie',
+    clotheColor:'PastelBlue',
+    eyeType:'Happy',
+    eyebrowType:'Default',
+    mouthType:'Smile',
+    skinColor:'Light',
+  });
+
+  return (
+    <AvataaarsCustomizer value={customizedAttributes} onChange={setCustomizedAttributes}/>
+  )
 }
 ```
 
