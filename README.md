@@ -1,6 +1,8 @@
 # avataaars-customizer
 
-Custom avatar generator based on https://avataaars.com/ and https://getavataaars.com/.
+Embeddable custom avatar generator based on https://avataaars.com/ and https://getavataaars.com/.
+
+![Screenshot](avataaars-customizer.png)
 
 ## Install
 
