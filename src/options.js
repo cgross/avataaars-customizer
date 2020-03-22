@@ -1,22 +1,6 @@
 
 var options = [
     {
-        label:'Skin',
-        type:'skinColor',
-        attribute:'skinColor',
-        values:[],
-        colorAttribute:'skinColor',
-        colors:{
-            "Tanned":"#FD9841",
-            "Yellow":"#F8D25C",
-            "Pale":"#FFDBB4",
-            "Light":"#EDB98A",
-            "Brown":"#D08B5B",
-            "DarkBrown":"#AE5D29",
-            "Black":"#614335"
-        }
-    },
-    {
         label:'Head',
         type:'top',
         attribute:'topType',
@@ -95,7 +79,7 @@ var options = [
             "Pink":"#FF488E",
             "Red":"#FF5C5C",
             "White":"#FFFFFF"
-  
+
         }
     },
     {
@@ -226,7 +210,23 @@ var options = [
             "Red":"#FF5C5C",
             "White":"#FFFFFF"
         }
-    }
+    },
+    {
+      label:'Skin',
+      type:'skinColor',
+      attribute:'skinColor',
+      values:[],
+      colorAttribute:'skinColor',
+      colors:{
+          "Tanned":"#FD9841",
+          "Yellow":"#F8D25C",
+          "Pale":"#FFDBB4",
+          "Light":"#EDB98A",
+          "Brown":"#D08B5B",
+          "DarkBrown":"#AE5D29",
+          "Black":"#614335"
+      }
+  }
 ];
 
 export default options;

@@ -58,7 +58,5 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-
-  }
+  "dependencies": {}
 }

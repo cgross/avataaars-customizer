@@ -34,26 +34,26 @@ export default function AvataaarsCustomizer(props) {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.avatar}>
         <Avatar
-            style={{width: '300px', height: '300px'}}
+            style={{width: '200px', height: '200px'}}
             avatarStyle='Circle'
             {...attributes}
-          /> 
+          />
       </div>
       <div className={styles.tabs}>
         {
           map(options,(option) => {
             return (
-                <div 
+                <div
                   className={styles.tab + ' ' + (selectedTab == option.type ? styles.selectedTab : '')}
                   onClick={() => setSelectedTab(option.type)}
                   >
                   {option.label}
                 </div>
               );
-          })          
+          })
         }
       </div>
       <div className={styles.tabpanes}>
@@ -84,30 +84,33 @@ export default function AvataaarsCustomizer(props) {
                             </div>
                     })
                   }
-                  {
-                    option.colors && option.values.length > 0 && 
+                  {/* {
+                    option.colors && option.values.length > 0 &&
                       <div className={styles.divider}><div></div></div>
-                  }
+                  } */}
+                  <div className={styles.colorContainer}>
                   {
-                    option.colors && (option.type !== 'top' || option.hats.indexOf(attributes.topType) === -1) && 
+                    option.colors && (option.type !== 'top' || option.hats.indexOf(attributes.topType) === -1) && attributes.topType !== 'Eyepatch' &&
                       map(option.colors,(color,colorName) => {
-                        return <div 
-                                className={styles.color} 
-                                style={{backgroundColor:color}}
+                        return <div
+                                className={styles.color}
+                                style={{backgroundColor:color,border:color === '#FFFFFF' ? '1px solid #ccc' : '1px solid ' + color}}
                                 onClick={() => pieceClicked(option.colorAttribute,colorName)}
                               ></div>
-                      }) 
+                      })
                   }
+
                   {
-                    option.hatColors && option.hats.indexOf(attributes.topType) !== -1 && 
+                    option.hatColors && option.hats.indexOf(attributes.topType) !== -1 && attributes.topType !== 'Hat' &&
                       map(option.hatColors,(color,colorName) => {
-                        return <div 
-                                className={styles.color} 
-                                style={{backgroundColor:color}}
+                        return <div
+                                className={styles.color}
+                                style={{backgroundColor:color,border:color === '#FFFFFF' ? '1px solid #ccc' : '1px solid ' + color}}
                                 onClick={() => pieceClicked('hatColor',colorName)}
                               ></div>
-                      }) 
-                  }                  
+                      })
+                  }
+                  </div>
                 </div>
               );
           })
