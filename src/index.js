@@ -9,25 +9,12 @@ export default function AvataaarsCustomizer(props) {
 
   const [selectedTab,setSelectedTab] = React.useState('top');
 
-  const [attributes,setAttributes] = React.useState(props.value || {
-    topType:'LongHairMiaWallace',
-    accessoriesType:'Prescription02',
-    hairColor:'BrownDark',
-    facialHairType:'Blank',
-    clotheType:'Hoodie',
-    clotheColor:'PastelBlue',
-    eyeType:'Happy',
-    eyebrowType:'Default',
-    mouthType:'Smile',
-    skinColor:'Light',
-  });
-
   function pieceClicked(attr,val) {
     var newAttributes = {
-      ...attributes,
+      ...props.value,
       [attr]:val
     };
-    setAttributes(newAttributes);
+    console.log(attr,val)
     if (props.onChange) {
       props.onChange(newAttributes);
     }
@@ -39,7 +26,7 @@ export default function AvataaarsCustomizer(props) {
         <Avatar
             style={{width: '200px', height: '200px'}}
             avatarStyle='Circle'
-            {...attributes}
+            {...props.value}
           />
       </div>
       <div className={styles.tabs}>
@@ -68,13 +55,6 @@ export default function AvataaarsCustomizer(props) {
                       if (option.transform) {
                         attr.style = {transform:option.transform};
                       }
-                      // if (option.colors) {
-                      //   if (option.hatColors && option.hats.indexOf(val) !== -1) {
-                      //     attr.hatColor = attributes.hatColor;
-                      //   } else {
-                      //     attr[option.colorAttribute] = attributes[option.colorAttribute];
-                      //   }
-                      // }
                       return <div className={styles.piece} onClick={() => pieceClicked(option.attribute,val)}>
                               <Piece pieceSize="50" pieceType={option.type} {...attr}/>
                               {
@@ -84,13 +64,10 @@ export default function AvataaarsCustomizer(props) {
                             </div>
                     })
                   }
-                  {/* {
-                    option.colors && option.values.length > 0 &&
-                      <div className={styles.divider}><div></div></div>
-                  } */}
                   <div className={styles.colorContainer}>
                   {
-                    option.colors && (option.type !== 'top' || option.hats.indexOf(attributes.topType) === -1) && attributes.topType !== 'Eyepatch' &&
+                    option.colors && (option.type !== 'top' || option.hats.indexOf(props.value.topType) === -1) &&
+                      props.value.topType !== 'Eyepatch' && props.value.topType !== 'LongHairShavedSides' && props.value.topType !== 'LongHairFrida' &&
                       map(option.colors,(color,colorName) => {
                         return <div
                                 className={styles.color}
@@ -101,7 +78,7 @@ export default function AvataaarsCustomizer(props) {
                   }
 
                   {
-                    option.hatColors && option.hats.indexOf(attributes.topType) !== -1 && attributes.topType !== 'Hat' &&
+                    option.hatColors && option.hats.indexOf(props.value.topType) !== -1 && props.value.topType !== 'Hat' &&
                       map(option.hatColors,(color,colorName) => {
                         return <div
                                 className={styles.color}
