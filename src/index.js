@@ -14,7 +14,6 @@ export default function AvataaarsCustomizer(props) {
       ...props.value,
       [attr]:val
     };
-    console.log(attr,val)
     if (props.onChange) {
       props.onChange(newAttributes);
     }
